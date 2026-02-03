@@ -28,7 +28,7 @@ public class User {
     private String email;
     @NotBlank(message = "Password is required")
     @Size(min = 6, message = "Password must be at least 6 characters long")
-    private String Password;
+    private String password;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Task>tasks;
 }
