@@ -1,6 +1,7 @@
 package com.example.demo.Entity;
 
 import com.example.demo.Enum.TaskStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -22,5 +23,6 @@ public class Task {
     private TaskStatus status;
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 }
