@@ -23,9 +23,7 @@ public class SecurityConfiguration {
             http.csrf(csrf->csrf.disable())
                     .authorizeHttpRequests(auth -> auth
                  .requestMatchers(
-                         "/TaskApp/auth/**",
-                         "/TaskApp/User/**",
-                         "/TaskApp/Task/**"
+                         "/TaskApp/auth/**"
                  ).permitAll()
                  .anyRequest().authenticated()
                     );
