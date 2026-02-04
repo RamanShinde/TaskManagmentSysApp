@@ -22,8 +22,7 @@ public class SecurityConfiguration {
                          "/TaskApp/Task/**"
                  ).permitAll()
                  .anyRequest().authenticated()
-                    )
-                    .httpBasic(Customizer.withDefaults());;
+                    );
                     return http.build();
      }
 
