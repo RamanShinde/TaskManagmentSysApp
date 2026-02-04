@@ -18,8 +18,8 @@ public class SecurityConfiguration {
                     .authorizeHttpRequests(auth -> auth
                  .requestMatchers(
                          "/TaskApp/auth/**",
-                         "/TaskApp/User/addUser",
-                         "/TaskApp/User/getMeg"
+                         "/TaskApp/User/**",
+                         "/TaskApp/Task/**"
                  ).permitAll()
                  .anyRequest().authenticated()
                     )
