@@ -4,6 +4,7 @@ import com.example.demo.DTO.LoginRequest;
 import com.example.demo.DTO.SingUpRequest;
 import com.example.demo.Entity.User;
 import com.example.demo.Repository.UserRepository;
+import com.example.demo.Security.JwtUtil;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,6 +22,9 @@ public class AuthController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtUtil jwtUtil;
 
     @PostMapping("/signup")
     public User signup(@Valid @RequestBody SingUpRequest request) {
@@ -47,6 +51,6 @@ public class AuthController {
             throw new RuntimeException("Invalid password");
         }
 
-        return "Login successful";
+        return  jwtUtil.generateToken(user.getEmail());
     }
 }
